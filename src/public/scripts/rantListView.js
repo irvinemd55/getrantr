@@ -25,7 +25,13 @@ var RantView = Backbone.View.extend({
   },
 
   render: function() {
-    this.$el.html(this.template(this.model.toJSON()));
+    var rant = this.model.toJSON();
+    if(typeof rant.text !== 'string'){
+      console.error('Received invalid rant data:', rant);
+      rant.text = "Sorry! An error occurred. We're on it";
+    }
+
+    this.$el.html(this.template(rant));
     return this;
   },
 

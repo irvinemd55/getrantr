@@ -1,5 +1,8 @@
 /* global AdCollection, AdListView, AddRantView, RantCollection, RantListView, UserModel, UserView */
-
+if (!window.$){
+  console.error('jquery failed to load');
+  document.body.innerHTML = '<h1> SOrry! Something terrible happened. Are you in an elevator?try again</h1>';
+}
 $(function() {
   'use strict';
 
